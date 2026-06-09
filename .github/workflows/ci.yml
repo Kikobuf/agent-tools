@@ -1,0 +1,37 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [18, 20, 22]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build n8n-mcp
+        run: cd packages/n8n-mcp && npm run build
+
+      - name: Build ollama-mcp
+        run: cd packages/ollama-mcp && npm run build
+
+      - name: Verify binaries exist
+        run: |
+          test -f packages/n8n-mcp/dist/index.js && echo "✓ n8n-mcp dist exists"
+          test -f packages/ollama-mcp/dist/index.js && echo "✓ ollama-mcp dist exists"

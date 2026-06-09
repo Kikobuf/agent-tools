@@ -1,0 +1,39 @@
+{
+  "name": "@agent-tools/n8n-mcp",
+  "version": "1.0.0",
+  "description": "MCP server for n8n — build, deploy, debug and manage workflows with Claude. Supports stdio (Claude Code) and HTTP (Claude Desktop custom connector).",
+  "main": "dist/index.js",
+  "bin": {
+    "n8n-mcp": "dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc && chmod +x dist/index.js",
+    "dev": "tsc --watch",
+    "start": "node dist/index.js",
+    "start:http": "MCP_TRANSPORT=http node dist/index.js",
+    "prepublishOnly": "npm run build"
+  },
+  "files": ["dist", "README.md"],
+  "keywords": [
+    "mcp", "n8n", "automation", "workflow", "claude",
+    "ai-agent", "model-context-protocol", "llm-tools"
+  ],
+  "author": "Enrico Buffara",
+  "license": "MIT",
+  "homepage": "https://github.com/Kikobuf/agent-tools/tree/main/packages/n8n-mcp",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Kikobuf/agent-tools.git",
+    "directory": "packages/n8n-mcp"
+  },
+  "engines": { "node": ">=18" },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": ">=1.10.0",
+    "axios": "^1.6.0",
+    "zod": "^3.22.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "typescript": "^5.0.0"
+  }
+}
