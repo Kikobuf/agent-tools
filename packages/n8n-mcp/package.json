@@ -1,5 +1,5 @@
 {
-  "name": "@agent-tools/n8n-mcp",
+  "name": "@agent-tools-kiko/n8n-mcp",
   "version": "1.0.0",
   "description": "MCP server for n8n — build, deploy, debug and manage workflows with Claude. Supports stdio (Claude Code) and HTTP (Claude Desktop custom connector).",
   "main": "dist/index.js",

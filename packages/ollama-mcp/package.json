@@ -1,5 +1,5 @@
 {
-  "name": "@agent-tools/ollama-mcp",
+  "name": "@agent-tools-kiko/ollama-mcp",
   "version": "1.0.0",
   "description": "MCP server for Ollama — run local models in Claude Desktop and Claude Code. Optional Claude API fallback for agent contexts.",
   "main": "dist/index.js",
