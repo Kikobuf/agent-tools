@@ -1,0 +1,39 @@
+{
+  "name": "@agent-tools/ollama-mcp",
+  "version": "1.0.0",
+  "description": "MCP server for Ollama — run local models in Claude Desktop and Claude Code. Optional Claude API fallback for agent contexts.",
+  "main": "dist/index.js",
+  "bin": {
+    "ollama-mcp": "dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc && chmod +x dist/index.js",
+    "dev": "tsc --watch",
+    "start": "node dist/index.js",
+    "start:http": "MCP_TRANSPORT=http node dist/index.js",
+    "prepublishOnly": "npm run build"
+  },
+  "files": ["dist", "README.md"],
+  "keywords": [
+    "mcp", "ollama", "llm", "local-ai", "claude",
+    "ai-agent", "model-context-protocol", "llama", "mistral"
+  ],
+  "author": "Enrico Buffara",
+  "license": "MIT",
+  "homepage": "https://github.com/Kikobuf/agent-tools/tree/main/packages/ollama-mcp",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Kikobuf/agent-tools.git",
+    "directory": "packages/ollama-mcp"
+  },
+  "engines": { "node": ">=18" },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": ">=1.10.0",
+    "axios": "^1.6.0",
+    "zod": "^3.22.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "typescript": "^5.0.0"
+  }
+}
