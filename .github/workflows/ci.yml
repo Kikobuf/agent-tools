@@ -20,16 +20,18 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
-          cache: "npm"
 
-      - name: Install dependencies
-        run: npm install
+      - name: Install and build n8n-mcp
+        run: |
+          cd packages/n8n-mcp
+          npm install
+          npm run build
 
-      - name: Build n8n-mcp
-        run: cd packages/n8n-mcp && npm run build
-
-      - name: Build ollama-mcp
-        run: cd packages/ollama-mcp && npm run build
+      - name: Install and build ollama-mcp
+        run: |
+          cd packages/ollama-mcp
+          npm install
+          npm run build
 
       - name: Verify binaries exist
         run: |
